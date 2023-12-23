@@ -8,5 +8,6 @@ phases:
   build:
     commands:
       - echo Building Docker image...
-      - docker build -t 757323807332.dkr.ecr.us-east-1.amazonaws.com/codebuild123:latest .
+      - docker build -t codebuild123:latest .
+      - docker tag codebuild123:latest 757323807332.dkr.ecr.us-east-1.amazonaws.com/codebuild123:latest
       - docker push 757323807332.dkr.ecr.us-east-1.amazonaws.com/codebuild123:latest
