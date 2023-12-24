@@ -43,7 +43,8 @@ phases:
       - echo "Update Kube Config"     
       - aws eks --region us-east-1 update-kubeconfig --name $EKS_CLUSTER_NAME
       # Apply changes to our Application using kubectl
-      - cat /root/.kube/config
+      - curl -o aws-iam-authenticator https://amazon-eks.s3.us-west-2.amazonaws.com/latest/bin/linux/amd64/aws-iam-authenticator
+      - chmod +x ./aws-iam-authenticator
       - kubectl get nodes
       - kubectl apply -f deployment/deployment.yml
      # - echo "Completed applying changes to Kubernetes Objects"           
