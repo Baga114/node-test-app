@@ -44,6 +44,7 @@ phases:
       - aws eks --region us-east-1 update-kubeconfig --name $EKS_CLUSTER_NAME
       - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME
       - kubectl config view
+      - kubectl config current-context
       # Apply changes to our Application using kubectl
       - echo "Apply changes to kube manifests"            
       - kubectl apply -f deployment/deployment.yaml
