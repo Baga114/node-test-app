@@ -40,13 +40,9 @@ phases:
       - export AWS_SESSION_TOKEN="$(echo ${CREDENTIALS} | jq -r '.Credentials.SessionToken')"
       - export AWS_EXPIRATION=$(echo ${CREDENTIALS} | jq -r '.Credentials.Expiration')
       # Setup kubectl with our EKS Cluster              
-      - echo "Update Kube Config"     
-      - aws eks --region us-east-1 update-kubeconfig --name $EKS_CLUSTER_NAME
+      - echo "Update Kube Config"      
+      - aws eks update-kubeconfig --name $EKS_CLUSTER_NAME
       # Apply changes to our Application using kubectl
-      - aws configure list
-      - aws eks --region us-east-1 update-kubeconfig --name $EKS_CLUSTER_NAME
-      - cat /root/.kube/config
-      - kubectl config get-contexts
       - kubectl get nodes
       #- kubectl apply -f deployment/deployment.yml
      # - echo "Completed applying changes to Kubernetes Objects"           
