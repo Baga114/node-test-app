@@ -16,7 +16,7 @@ spec:
       # - name: testing  # Name of the secret you created
       containers:
       - name: test
-        image: 757323807332.dkr.ecr.us-east-1.amazonaws.com/test24649:$TAG # Replace with your image details
+        image: 757323807332.dkr.ecr.us-east-1.amazonaws.com/testregistor114:$TAG # Replace with your image details
         ports:
         - containerPort: 80
 ---
