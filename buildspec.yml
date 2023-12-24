@@ -43,6 +43,7 @@ phases:
       - echo "Update Kube Config"     
       - aws eks --region us-east-1 update-kubeconfig --name $EKS_CLUSTER_NAME
       # Apply changes to our Application using kubectl
+      - pip install --upgrade awscli
       - aws configure list
       - aws eks --region us-east-1 update-kubeconfig --name $EKS_CLUSTER_NAME
       - cat /root/.kube/config
